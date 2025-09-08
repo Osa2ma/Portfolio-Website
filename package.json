@@ -5,8 +5,8 @@
   "main": "index.html",
   "scripts": {
     "dev": "npx serve .",
-    "build": "node build-env.js",
-    "vercel-build": "node build-env.js",
+    "build": "node build-env.js && echo 'Build completed successfully'",
+    "vercel-build": "node build-env.js && echo 'Vercel build completed successfully'",
     "start": "npx serve .",
     "preview": "npx serve ."
   },
