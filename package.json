@@ -1,10 +1,26 @@
 {
-  "name": "portfolio",
+  "name": "portfolio-website",
   "version": "1.0.0",
+  "description": "A modern portfolio website with About, Projects, Experience, Certifications, Interests, and Contact sections",
+  "main": "index.html",
   "scripts": {
-    "build": "echo \"Static site - no build needed\""
+    "dev": "npx serve .",
+    "build": "node build-env.js",
+    "vercel-build": "node build-env.js",
+    "start": "npx serve .",
+    "preview": "npx serve ."
   },
-  "dependencies": {
-    "resend": "^3.0.0"
+  "keywords": [
+    "portfolio",
+    "website",
+    "personal",
+    "developer",
+    "vercel"
+  ],
+  "author": "Osama Alashkar",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.2.0"
   }
 }
