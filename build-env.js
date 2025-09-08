@@ -13,9 +13,10 @@ let envConfigContent = fs.readFileSync(envConfigPath, 'utf8');
 // Replace placeholders with environment variables
 envConfigContent = envConfigContent.replace('{{EMAILJS_SERVICE_ID}}', process.env.EMAILJS_SERVICE_ID || '');
 envConfigContent = envConfigContent.replace('{{EMAILJS_TEMPLATE_ID}}', process.env.EMAILJS_TEMPLATE_ID || '');
-envConfigContent = envConfigContent.replace('{{EMAILJS_PUBLIC_KEY}}', process.env.EMAILJS_PUBLIC_KEY || '');
+
 
 // Write the updated content back to the file
 fs.writeFileSync(envConfigPath, envConfigContent);
 
 console.log('Environment variables injected into env-config.js');
+
