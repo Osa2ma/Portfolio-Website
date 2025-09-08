@@ -77,7 +77,7 @@ portfolio/
 ├── index.html          # Main HTML file
 ├── styles.css          # CSS styles
 ├── script.js           # JavaScript functionality
-├── package.json        # Project configuration
+├── projects            # some project images other than the one's in assets
 ├── vercel.json         # Vercel deployment config
 └── README.md           # This file
 ```
