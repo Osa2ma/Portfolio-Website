@@ -1,9 +1,7 @@
 {
-  "name": "portfolio-website",
+  "name": "portfolio-api",
   "version": "1.0.0",
-  "scripts": {
-    "build": "echo 'Static site - no build required'"
-  },
+  "description": "API endpoints for the portfolio website",
   "dependencies": {
     "resend": "^3.2.0"
   }
