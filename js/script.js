@@ -81,7 +81,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
+// Contact form handling
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(this);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
+        
+        // Simple validation
+        if (!name || !email || !message) {
+            alert('Please fill in all fields');
+            return;
+        }
+        
+        // Simulate form submission
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+        
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Simulate API call
+        setTimeout(() => {
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            this.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }, 2000);
+    });
+}
 
 // Add typing effect to hero section
 function typeWriter(element, text, speed = 100) {
@@ -659,23 +692,60 @@ document.addEventListener('DOMContentLoaded', function() {
             to_name: "Osama Alashkar",
             reply_to: contactForm.querySelector('input[name="from_email"]').value
         };
-        
+
+        // Debug logs to help trace missing config
+        console.log('EmailJS CONFIG (window.CONFIG):', window.CONFIG);
+        console.log('EmailJS globals:', {
+            SERVICE: window.EMAILJS_SERVICE_ID,
+            TEMPLATE: window.EMAILJS_TEMPLATE_ID,
+            PUBLIC: window.EMAILJS_PUBLIC_KEY
+        });
+
+        // Determine IDs and public key with fallbacks
+        const serviceID = (window.CONFIG && window.CONFIG.emailjs && window.CONFIG.emailjs.serviceID) ? window.CONFIG.emailjs.serviceID : (window.EMAILJS_SERVICE_ID || '');
+        const templateID = (window.CONFIG && window.CONFIG.emailjs && window.CONFIG.emailjs.templateID) ? window.CONFIG.emailjs.templateID : (window.EMAILJS_TEMPLATE_ID || '');
+        const publicKey = (window.CONFIG && window.CONFIG.emailjs && window.CONFIG.emailjs.publicKey) ? window.CONFIG.emailjs.publicKey : (window.EMAILJS_PUBLIC_KEY || '');
+
+        // Validate public key before attempting to send
+        if (!publicKey) {
+            console.error('EmailJS public key is missing.');
+            showFormStatus('error', '❌ Email service is not configured. Please contact me directly at osamamohamedhajaj@gmail.com');
+            submitBtn.disabled = false;
+            btnText.style.display = 'inline-block';
+            btnLoader.style.display = 'none';
+            return;
+        }
+
+        // Ensure emailjs is initialized with the public key
         try {
-            // Send email using EmailJS with configuration from config.js
+            if (!window.emailjs || typeof emailjs.init !== 'function') {
+                console.warn('EmailJS SDK not loaded or init not available');
+            } else {
+                emailjs.init(publicKey);
+                console.log('EmailJS initialized at submit time with public key');
+            }
+        } catch (initErr) {
+            console.warn('emailjs.init error:', initErr);
+        }
+
+        try {
+            // Send email using EmailJS with configuration (with fallbacks)
             const result = await emailjs.send(
-                CONFIG.emailjs.serviceID, 
-                CONFIG.emailjs.templateID, 
+                serviceID,
+                templateID,
                 templateParams
             );
             console.log('Email successfully sent!', result);
-            
+
             // Show success message
             showFormStatus('success', '✅ Message sent successfully! I\'ll get back to you soon.');
             contactForm.reset();
-            
+
         } catch (error) {
             console.error('Email error:', error);
-            showFormStatus('error', '❌ Failed to send message. Please try again or contact me directly at osamamohamedhajaj@gmail.com');
+            // Extract readable message if available
+            const errMsg = (error && (error.text || error.message || error.status)) ? (error.text || error.message || error.status) : 'unknown error';
+            showFormStatus('error', `❌ Failed to send message (${errMsg}). Please try again or contact me directly at osamamohamedhajaj@gmail.com`);
         } finally {
             // Reset button state
             submitBtn.disabled = false;
