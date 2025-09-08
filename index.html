@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- EmailJS SDK -->
@@ -16,17 +16,8 @@
     
     <script type="text/javascript">
         (function() {
-            try {
-                const pub = (window.CONFIG && CONFIG.emailjs && CONFIG.emailjs.publicKey) ? CONFIG.emailjs.publicKey : '';
-                if (pub) {
-                    emailjs.init(pub);
-                    console.log('EmailJS initialized with public key.');
-                } else {
-                    console.warn('EmailJS public key is missing. Add EMAILJS_PUBLIC_KEY in Vercel environment variables.');
-                }
-            } catch (e) {
-                console.error('EmailJS init error:', e);
-            }
+            // Initialize with public key from config if available
+            emailjs.init(CONFIG.emailjs.publicKey || "");
         })();
     </script>
 </head>
