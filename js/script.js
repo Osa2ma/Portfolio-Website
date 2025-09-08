@@ -694,8 +694,12 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         try {
-            // Send email using EmailJS
-            const result = await emailjs.send('service_x5qn7rm', 'template_ywkcqhw', templateParams);
+            // Send email using EmailJS with configuration from config.js
+            const result = await emailjs.send(
+                CONFIG.emailjs.serviceID, 
+                CONFIG.emailjs.templateID, 
+                templateParams
+            );
             console.log('Email successfully sent!', result);
             
             // Show success message
