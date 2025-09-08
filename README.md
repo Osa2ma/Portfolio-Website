@@ -89,10 +89,4 @@ portfolio/
 - Safari (latest)
 - Edge (latest)
 
-## License
 
-MIT License - feel free to use this template for your own portfolio!
-
-## Contributing
-
-Feel free to submit issues and enhancement requests!
