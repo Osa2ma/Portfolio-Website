@@ -190,7 +190,9 @@ window.addEventListener('load', () => {
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        background: linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #CD853F 100%);
+        background-size: 400% 400%;
+        animation: gradientShift 3s ease-in-out infinite;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -199,8 +201,10 @@ window.addEventListener('load', () => {
     `;
     
     loader.innerHTML = `
-        <div style="text-align: center; color: white;">
-            <img src="assets/images/profile/logopa.png" alt="Loading Logo" style="width: 120px; height: auto; animation: bounce 1.5s ease-in-out infinite; margin: 0 auto; display: block;">
+        <div style="text-align: center; color: white; position: relative;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; border: 2px solid rgba(255,255,255,0.1); border-radius: 50%; animation: pulse 2s ease-in-out infinite;"></div>
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 150px; height: 150px; border: 1px solid rgba(255,255,255,0.05); border-radius: 50%; animation: pulse 2s ease-in-out infinite 0.5s;"></div>
+            <img src="assets/images/profile/logopa.png" alt="Loading Logo" style="width: 120px; height: auto; animation: bounce 1.5s ease-in-out infinite; margin: 0 auto; display: block; position: relative; z-index: 10; filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));">
         </div>
     `;
     
@@ -215,6 +219,27 @@ window.addEventListener('load', () => {
             }
             60% {
                 transform: translateY(-15px);
+            }
+        }
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(1.1);
             }
         }
     `;
@@ -642,53 +667,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Resend API Contact Form Handler
+// EmailJS Contact Form Handler
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
     const formStatus = document.getElementById('form-status');
+    const btnText = document.querySelector('.btn-text');
+    const btnLoader = document.querySelector('.btn-loader');
     
     contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         // Show loading state
-        submitBtn.classList.add('loading');
         submitBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoader.style.display = 'inline-block';
         formStatus.style.display = 'none';
         
-        // Get form data
-        const formData = new FormData(contactForm);
-        const emailData = {
-            from_name: formData.get('from_name'),
-            from_email: formData.get('from_email'),
-            message: formData.get('message')
+        // Prepare template parameters
+        const templateParams = {
+            from_name: contactForm.querySelector('input[name="from_name"]').value,
+            from_email: contactForm.querySelector('input[name="from_email"]').value,
+            message: contactForm.querySelector('textarea[name="message"]').value,
+            to_name: "Osama Alashkar",
+            reply_to: contactForm.querySelector('input[name="from_email"]').value
         };
         
         try {
-            // Send to your Vercel API endpoint
-            const response = await fetch('/api/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(emailData)
-            });
+            // Send email using EmailJS
+            const result = await emailjs.send('service_x5qn7rm', 'template_ywkcqhw', templateParams);
+            console.log('Email successfully sent!', result);
             
-            const result = await response.json();
+            // Show success message
+            showFormStatus('success', '✅ Message sent successfully! I\'ll get back to you soon.');
+            contactForm.reset();
             
-            if (response.ok) {
-                showFormStatus('success', '✅ Message sent successfully! I\'ll get back to you soon.');
-                contactForm.reset();
-            } else {
-                throw new Error(result.error || 'Failed to send message');
-            }
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Email error:', error);
             showFormStatus('error', '❌ Failed to send message. Please try again or contact me directly at osamamohamedhajaj@gmail.com');
         } finally {
             // Reset button state
-            submitBtn.classList.remove('loading');
             submitBtn.disabled = false;
+            btnText.style.display = 'inline-block';
+            btnLoader.style.display = 'none';
         }
     });
     
@@ -697,9 +718,9 @@ document.addEventListener('DOMContentLoaded', function() {
         formStatus.textContent = message;
         formStatus.style.display = 'block';
         
-        // Hide status after 5 seconds
+        // Hide status after 10 seconds
         setTimeout(() => {
             formStatus.style.display = 'none';
-        }, 5000);
+        }, 10000);
     }
 });
