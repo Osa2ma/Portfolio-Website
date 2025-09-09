@@ -98,24 +98,24 @@ body.dark-theme .navbar {
     width: auto;
     transition: opacity 0.3s ease;
     max-height: 100px;
-    display: block;
 }
 
-.logo-bright {
-    display: block;
+/* Logo display rules - Default (light theme) */
+.nav-logo .logo-bright {
+    display: block !important;
 }
 
-.logo-dark {
-    display: none;
+.nav-logo .logo-dark {
+    display: none !important;
 }
 
 /* Dark theme logo switching */
-body.dark-theme .logo-bright {
-    display: none;
+body.dark-theme .nav-logo .logo-bright {
+    display: none !important;
 }
 
-body.dark-theme .logo-dark {
-    display: block;
+body.dark-theme .nav-logo .logo-dark {
+    display: block !important;
 }
 
 .nav-menu {
