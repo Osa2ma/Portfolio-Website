@@ -32,14 +32,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Navbar scroll behavior and active links
 let lastScrollY = 0;
-let scrollTimeout = null;
 
 window.addEventListener('scroll', () => {
     const currentScrollY = window.pageYOffset;
     const navbar = document.querySelector('.navbar');
     
-    // Navbar hide/show logic
+    // Navbar hide/show logic - purely direction-based
     if (currentScrollY > 100) { // Start hiding after scrolling 100px
         if (currentScrollY > lastScrollY) {
             // Scrolling down - hide navbar
@@ -57,10 +57,7 @@ window.addEventListener('scroll', () => {
     
     lastScrollY = currentScrollY;
 
-
-
-// Add active class to navigation links based on scroll position
-window.addEventListener('scroll', () => {
+    // Add active class to navigation links based on scroll position
     const sections = document.querySelectorAll('section[id]');
     const scrollY = window.pageYOffset;
 
@@ -702,7 +699,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ).then(
             function() {
                 console.log('Email successfully sent!');
-                showFormStatus('success', 'Message received. I’ll respond as soon as possible.');
+                showFormStatus('success', '✅ Message sent successfully! I\'ll get back to you soon.');
                 contactForm.reset();
                 
                 // Reset button state
