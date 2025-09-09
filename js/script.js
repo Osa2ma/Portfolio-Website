@@ -557,9 +557,11 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImage.src = imageSrc;
         lightboxTitle.textContent = title;
         
-        // Hide the main modal temporarily
+        // Hide the main modal temporarily if it's open
         const mainModal = document.getElementById('projectModal');
-        mainModal.style.visibility = 'hidden';
+        if (mainModal.style.display === 'block') {
+            mainModal.style.visibility = 'hidden';
+        }
         
         lightbox.style.display = 'block';
         document.body.style.overflow = 'hidden';
@@ -569,13 +571,27 @@ document.addEventListener('DOMContentLoaded', () => {
     function closeLightbox() {
         lightbox.style.display = 'none';
         
-        // Restore the main modal visibility
+        // Restore the main modal visibility if it was open
         const mainModal = document.getElementById('projectModal');
-        mainModal.style.visibility = 'visible';
-        
-        // Keep overflow hidden since main modal is still open
-        document.body.style.overflow = 'hidden';
+        if (mainModal.style.display === 'block') {
+            mainModal.style.visibility = 'visible';
+            // Keep overflow hidden since main modal is still open
+            document.body.style.overflow = 'hidden';
+        } else {
+            // If main modal wasn't open, restore normal scrolling
+            document.body.style.overflow = 'auto';
+        }
     }
+
+    // Certification Cards Lightbox Functionality
+    const certCards = document.querySelectorAll('.cert-card:not(.no-certificate)');
+    certCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const imageSrc = card.getAttribute('data-cert-image');
+            const title = card.getAttribute('data-cert-title');
+            openLightbox(imageSrc, title);
+        });
+    });
 
     // Add click event listeners to dashboard images
     function addLightboxListeners() {
