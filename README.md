@@ -39,19 +39,6 @@ Option B:
 `vercel.json` can refine headers / clean URLs.
 
 ---
-
-## 🛠 Extend (Ideas)
-- Real form handling (Formspree / serverless function)
-- Analytics (Plausible / Fathom / GA)
-- Project data as JSON → rendered dynamically
-- Image lazy loading + `loading="lazy"`
-- Section intersection observer → highlight nav
-
----
-
-
-
----
 ## Add a Real Contact Form (Optional)
 
 This project includes a basic form structure.  
