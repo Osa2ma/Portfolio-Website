@@ -5,9 +5,21 @@ Concise, fast-loading personal site showcasing who you are, what you’ve built,
 ---
 
 ## Snapshot
-Sections live now: About · Projects · Education . Experience · Certifications · Interests · Contact  
-Tech: HTML5 · CSS (Grid/Flex/Vars) · Vanilla JS · Font Awesome · Google Fonts · Vercel-ready
+**Sections available**
+- About  
+- Projects  
+- Education  
+- Experience  
+- Certifications  
+- Interests  
+- Contact  
 
+**Tech stack**
+- HTML5
+- CSS 
+- Vanilla JS  
+- Font Awesome  
+- Vercel (deployment-ready)
 ---
 
 ## Layout Map
