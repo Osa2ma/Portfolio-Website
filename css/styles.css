@@ -98,9 +98,6 @@ body.dark-theme .navbar {
     width: auto;
     transition: opacity 0.3s ease;
     max-height: 100px;
-}
-
-.logo-bright {
     display: block;
 }
 
@@ -1749,10 +1746,38 @@ body.dark-theme .tech-tag {
     text-align: center;
     box-shadow: 0 5px 20px var(--shadow-color);
     transition: transform 0.3s ease;
+    cursor: pointer;
+    position: relative;
 }
 
 .cert-card:hover {
     transform: translateY(-5px);
+}
+
+.cert-card::after {
+    content: 'Click to view certificate';
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cert-card:hover::after {
+    opacity: 1;
+}
+
+.cert-card.no-certificate {
+    cursor: default;
+}
+
+.cert-card.no-certificate:hover::after {
+    content: 'Certificate not available';
+    color: #888;
+    opacity: 1;
 }
 
 .cert-icon {
