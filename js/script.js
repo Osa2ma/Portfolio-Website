@@ -57,15 +57,6 @@ window.addEventListener('scroll', () => {
     
     lastScrollY = currentScrollY;
 
-    // Clear existing timeout
-    if (scrollTimeout) {
-        clearTimeout(scrollTimeout);
-    }
-    
-    // Set timeout to show navbar after user stops scrolling
-    scrollTimeout = setTimeout(() => {
-        navbar.classList.remove('navbar-hidden');
-    }, 150);
 
 
 // Add active class to navigation links based on scroll position
