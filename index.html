@@ -7,17 +7,11 @@
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    
-    <!-- For local development, use config.js (not in git repo) -->
-    <!-- For Vercel deployment, use env-config.js and config.vercel.js -->
-    <script type="text/javascript" src="js/env-config.js"></script>
-    <script type="text/javascript" src="js/config.vercel.js"></script>
-    
-    <script type="text/javascript">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
         (function() {
-            // Initialize with public key from config if available
-            emailjs.init(CONFIG.emailjs.publicKey || "");
+            // Initialize EmailJS with your PUBLIC KEY
+            emailjs.init("NVoBJ67b-bq2awnWK");
         })();
     </script>
 </head>
@@ -531,10 +525,7 @@
             <p>&copy; 2025 Osama Alashkar. All rights reserved.</p>
         </div>
     </footer>
-    <script src="js/env-config.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
     <script src="js/script.js"></script>
-    
 </body>
 </html>
-
