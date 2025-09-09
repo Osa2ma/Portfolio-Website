@@ -270,7 +270,7 @@ To customize breakpoints, update the media queries in `styles.css`.
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🤝 Contributing
+## 🤝 Getting Your Own Portfolio
 
 Feel free to use it as a template for your own portofolio website.
 
