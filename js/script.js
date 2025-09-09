@@ -675,7 +675,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ).then(
             function() {
                 console.log('Email successfully sent!');
-                showFormStatus('success', '✅ Message sent successfully! I\'ll get back to you soon.');
+                showFormStatus('success', 'Message received. I’ll respond as soon as possible.');
                 contactForm.reset();
                 
                 // Reset button state
