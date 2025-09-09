@@ -32,6 +32,42 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+let lastScrollY = 0;
+let scrollTimeout = null;
+
+window.addEventListener('scroll', () => {
+    const currentScrollY = window.pageYOffset;
+    const navbar = document.querySelector('.navbar');
+    
+    // Navbar hide/show logic
+    if (currentScrollY > 100) { // Start hiding after scrolling 100px
+        if (currentScrollY > lastScrollY) {
+            // Scrolling down - hide navbar
+            navbar.classList.add('navbar-hidden');
+        } else {
+            // Scrolling up - show navbar
+            navbar.classList.remove('navbar-hidden');
+        }
+        // Add scrolled class for enhanced background
+        navbar.classList.add('navbar-scrolled');
+    } else {
+        // At top of page - always show navbar and remove scrolled class
+        navbar.classList.remove('navbar-hidden', 'navbar-scrolled');
+    }
+    
+    lastScrollY = currentScrollY;
+
+    // Clear existing timeout
+    if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+    }
+    
+    // Set timeout to show navbar after user stops scrolling
+    scrollTimeout = setTimeout(() => {
+        navbar.classList.remove('navbar-hidden');
+    }, 150);
+
+
 // Add active class to navigation links based on scroll position
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section[id]');
