@@ -101,6 +101,10 @@ body.dark-theme .navbar {
     display: block;
 }
 
+.logo-bright {
+    display: block;
+}
+
 .logo-dark {
     display: none;
 }
