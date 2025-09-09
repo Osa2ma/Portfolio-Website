@@ -67,11 +67,24 @@ body {
     z-index: 1000;
     padding: 1rem 0;
     box-shadow: 0 2px 20px var(--shadow-color);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar.navbar-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.navbar.navbar-scrolled {
+    background: rgba(255, 248, 220, 0.98);
+    box-shadow: 0 4px 30px var(--shadow-color);
 }
 
 body.dark-theme .navbar {
     background: rgba(33, 33, 33, 0.95);
+}
+body.dark-theme .navbar.navbar-scrolled {
+    background: rgba(33, 33, 33, 0.98);
 }
 
 .nav-container {
