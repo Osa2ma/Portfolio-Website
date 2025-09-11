@@ -32,6 +32,7 @@ Portfolio/
 ├── js/
 │   └── script.js           # Interactive functionality and animations
 ├── assets/
+|   └── documents/          # Your Own CV
 │   └── images/
 │       ├── profile/        # Profile images and logos
 │       ├── projects/       # Project screenshots
