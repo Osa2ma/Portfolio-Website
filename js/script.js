@@ -285,10 +285,57 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Class had a major impact on survival outcomes'
                 ]
             },
-            conclusion: 'While gender did influence survival, class was a stronger predictor. The popular narrative of "women and children first" holds some truth — but the full story is much more complex.',
-            liveDemo: '#',
-            github: 'https://github.com/Osa2ma/Titanic-Dashboard/tree/main'
+            conclusion: 'While gender did influence survival, class was a stronger predictor. The popular narrative of "women and children first" holds some truth but the full story is much more complex.',
+            
         },
+        'call-center-analysis': {
+            title: 'Call Center Performance Analysis',
+            description: 'Comprehensive analysis of call center operations using Tableau to track customer satisfaction, agent performance, and operational efficiency. This dashboard provides insights into service quality metrics and identifies opportunities for improvement in customer service delivery.',
+            image: 'projects/Tableau/Call Center/call_center_picCard.png',
+            dashboardImage: 'projects/Tableau/Call Center/Call_center1.png',
+            technologies: ['Tableau', 'Data Visualization', 'KPI Tracking', 'Performance Analytics'],
+            features: [
+                'Comprehensive call center dashboard with interactive filters by call center, month, and state',
+                'Total call volume tracking with 32,941 calls analyzed across multiple locations',
+                'Customer satisfaction (CSAT) score monitoring with average rating of 4.7/5',
+                'Call duration analysis showing average call time of 25 minutes',
+                'Peak call volume identification with October 2020 showing highest activity (20,978 calls)',
+                'Geographic distribution analysis across major US cities including Washington, Houston, NYC',
+                'Sentiment analysis breakdown showing customer feedback distribution',
+                'Response time performance tracking with 87.3% meeting SLA standards'
+
+            ],
+            keyInsights: [
+                'Peak call volume occurred in October 2020 with 20,978 calls, indicating seasonal patterns',
+                'Washington leads in call volume with 1,110 calls, followed by Houston (657) and NYC (564)',
+                'Customer satisfaction maintained at 4.7/5 rating, indicating strong service quality',
+                'Billing Questions identified as the primary call reason across all centers',
+                'Weekday call patterns show consistent volume with Tuesday/Thursday peaks',
+                'Call-Center channel handles majority of interactions (10,639) vs Chatbot (8,256)',
+                'Sentiment analysis reveals 11,063 negative vs 3,170 very positive responses',
+                'Response time performance shows 87.3% within acceptable SLA with 12.7% exceeding targets'
+            ],
+            kpis: {
+                'Total Calls': '32,941',
+                'Avg CSAT Score': '4.7/5',
+                'Avg Call Duration': '25 Min',
+                'Peak Month': 'October 2020',
+                'Top Location': 'Washington (1,110)',
+                'SLA Performance': '87.3%',
+                'Primary Issue': 'Billing Questions',
+                'Response Rate': '12.7% Above SLA'
+            },
+            recommendations: [
+                'Address billing process issues to reduce the high volume of billing-related calls',
+                'Implement targeted training for negative sentiment reduction (11,063 negative responses)',
+                'Optimize staffing for October peaks and Tuesday/Thursday call volume patterns',
+                'Enhance chatbot capabilities to handle more routine inquiries and reduce call center load',
+                'Develop proactive communication strategies for high-volume cities like Washington and Houston',
+                'Improve response time processes to reduce the 12.7% of calls exceeding SLA',
+                'Analyze the 25-minute average call duration for potential efficiency improvements'
+            ],
+            conclusion: 'The call center analysis of 32,941 calls reveals strong customer satisfaction (4.7/5) but highlights opportunities for improvement in billing processes, sentiment management, and response time optimization to enhance overall operational efficiency.',
+       }
         'agency-performance': {
             title: 'Agency Performance Analysis',
             description: 'Analysis of sales data across Egyptian governorates to find why some regions like Alexandria and Cairo sell more than others and how to make the business run better. Uses charts and numbers to spot opportunities for growth in underperforming areas like Sainai and Upper Egypt.',
@@ -462,6 +509,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Show multi-dashboard grid for Agency Performance
                     singleDashboard.style.display = 'none';
                     multiDashboard.style.display = 'grid';
+
+                } else if (projectId === 'call-center-analysis') {
+                    // Show multi-dashboard grid for Call Center Analysis
+                    singleDashboard.style.display = 'none';
+                    multiDashboard.style.display = 'grid';
+                    // Update the multi-dashboard grid content for call center
+                    multiDashboard.innerHTML = `
+                        <div class="dashboard-item">
+                            <h4>Call Center Overview</h4>
+                            <img src="projects/Tableau/Call Center/Call_center1.png" alt="Call Center Dashboard 1" class="dashboard-img">
+                        </div>
+                        <div class="dashboard-item">
+                            <h4>Performance Metrics</h4>
+                            <img src="projects/Tableau/Call Center/call_center2.png" alt="Call Center Dashboard 2" class="dashboard-img">
+                        </div>
+                    `;
                 } else {
                     // Show single dashboard for other projects
                     singleDashboard.style.display = 'block';
@@ -501,9 +564,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             </ul>
                         </div>
                     `;
-                // Update key insights and KPIs for Agency Performance and Fashion Retail projects
-                } else if ((projectId === 'agency-performance' || projectId === 'fashion-retail-sales') && project.keyInsights) {
-                    const findingsContainer = document.getElementById('modalKeyFindings');
+                // Update key insights and KPIs for Agency Performance, Fashion Retail, and Call Center projects
+                } else if ((projectId === 'agency-performance' || projectId === 'fashion-retail-sales' || projectId === 'call-center-analysis') && project.keyInsights) {
+                   const findingsContainer = document.getElementById('modalKeyFindings');
                     findingsContainer.innerHTML = `
                         <div class="kpis-section">
                             <h4>Key Performance Indicators:</h4>
