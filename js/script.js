@@ -285,8 +285,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Class had a major impact on survival outcomes'
                 ]
             },
-            conclusion: 'While gender did influence survival, class was a stronger predictor. The popular narrative of "women and children first" holds some truth but the full story is much more complex.',
-            
+            conclusion: 'While gender did influence survival, class was a stronger predictor. The popular narrative of "women and children first" holds some truth — but the full story is much more complex.',
+            liveDemo: '#',
+            github: 'https://github.com/Osa2ma/Titanic-Dashboard/tree/main'
         },
         'call-center-analysis': {
             title: 'Call Center Performance Analysis',
@@ -303,7 +304,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Geographic distribution analysis across major US cities including Washington, Houston, NYC',
                 'Sentiment analysis breakdown showing customer feedback distribution',
                 'Response time performance tracking with 87.3% meeting SLA standards'
-
             ],
             keyInsights: [
                 'Peak call volume occurred in October 2020 with 20,978 calls, indicating seasonal patterns',
@@ -335,7 +335,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Analyze the 25-minute average call duration for potential efficiency improvements'
             ],
             conclusion: 'The call center analysis of 32,941 calls reveals strong customer satisfaction (4.7/5) but highlights opportunities for improvement in billing processes, sentiment management, and response time optimization to enhance overall operational efficiency.',
-       }
+            liveDemo: '#',
+            github: '#'
+        },
         'agency-performance': {
             title: 'Agency Performance Analysis',
             description: 'Analysis of sales data across Egyptian governorates to find why some regions like Alexandria and Cairo sell more than others and how to make the business run better. Uses charts and numbers to spot opportunities for growth in underperforming areas like Sainai and Upper Egypt.',
@@ -509,7 +511,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Show multi-dashboard grid for Agency Performance
                     singleDashboard.style.display = 'none';
                     multiDashboard.style.display = 'grid';
-
                 } else if (projectId === 'call-center-analysis') {
                     // Show multi-dashboard grid for Call Center Analysis
                     singleDashboard.style.display = 'none';
@@ -566,7 +567,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     `;
                 // Update key insights and KPIs for Agency Performance, Fashion Retail, and Call Center projects
                 } else if ((projectId === 'agency-performance' || projectId === 'fashion-retail-sales' || projectId === 'call-center-analysis') && project.keyInsights) {
-                   const findingsContainer = document.getElementById('modalKeyFindings');
+                    const findingsContainer = document.getElementById('modalKeyFindings');
                     findingsContainer.innerHTML = `
                         <div class="kpis-section">
                             <h4>Key Performance Indicators:</h4>
@@ -762,7 +763,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ).then(
             function() {
                 console.log('Email successfully sent!');
-                showFormStatus('success', 'Message received. I’ll respond as soon as possible.');
+                showFormStatus('success', '✅ Message sent successfully! I\'ll get back to you soon.');
                 contactForm.reset();
                 
                 // Reset button state
