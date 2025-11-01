@@ -512,20 +512,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     singleDashboard.style.display = 'none';
                     multiDashboard.style.display = 'grid';
                 } else if (projectId === 'call-center-analysis') {
-                    // Show multi-dashboard grid for Call Center Analysis
-                    singleDashboard.style.display = 'none';
-                    multiDashboard.style.display = 'grid';
-                    // Update the multi-dashboard grid content for call center
-                    multiDashboard.innerHTML = `
-                        <div class="dashboard-item">
-                            <h4>Call Center Overview</h4>
-                            <img src="projects/Tableau/Call Center/Call_center1.png" alt="Call Center Dashboard 1" class="dashboard-img">
-                        </div>
-                        <div class="dashboard-item">
-                            <h4>Performance Metrics</h4>
-                            <img src="projects/Tableau/Call Center/call_center2.png" alt="Call Center Dashboard 2" class="dashboard-img">
-                        </div>
-                    `;
+                    // Show single dashboard with additional image below for Call Center
+                    singleDashboard.style.display = 'block';
+                    multiDashboard.style.display = 'none';
+                    document.getElementById('modalDashboardImage').src = project.dashboardImage || project.image;
+                    
+                    // Add the second dashboard image below the first one
+                    const dashboardContainer = document.querySelector('.dashboard-image-container');
+                    let secondImage = dashboardContainer.querySelector('.second-dashboard-image');
+                    if (!secondImage) {
+                        secondImage = document.createElement('img');
+                        secondImage.className = 'second-dashboard-image';
+                        secondImage.style.cssText = 'width: 100%; margin-top: 20px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); cursor: pointer;';
+                        dashboardContainer.appendChild(secondImage);
+                    }
+                    secondImage.src = 'projects/Tableau/Call Center/call_center2.png';
+                    secondImage.alt = 'Call Center Dashboard 2';
                 } else {
                     // Show single dashboard for other projects
                     singleDashboard.style.display = 'block';
