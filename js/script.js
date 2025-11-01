@@ -533,6 +533,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     singleDashboard.style.display = 'block';
                     multiDashboard.style.display = 'none';
                     document.getElementById('modalDashboardImage').src = project.dashboardImage || project.image;
+                    
+                    // Remove second image if it exists from previous call center view
+                    const dashboardContainer = document.querySelector('.dashboard-image-container');
+                    const secondImage = dashboardContainer.querySelector('.second-dashboard-image');
+                    if (secondImage) {
+                        secondImage.remove();
+                    }
                 }
                 
                 // Update features
@@ -702,8 +709,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 openLightbox(singleDashboardImg.src, title);
             });
         }
-    }
-       const secondDashboardImg = document.querySelector('.second-dashboard-image');
+
+        // Add listener to second dashboard image (for Call Center)
+        const secondDashboardImg = document.querySelector('.second-dashboard-image');
         if (secondDashboardImg) {
             secondDashboardImg.style.cursor = 'pointer';
             secondDashboardImg.addEventListener('click', () => {
@@ -711,6 +719,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 openLightbox(secondDashboardImg.src, title);
             });
         }
+    }
 
     // Close lightbox when close button is clicked
     lightboxClose.addEventListener('click', closeLightbox);
