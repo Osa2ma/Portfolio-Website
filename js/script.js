@@ -703,6 +703,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+       const secondDashboardImg = document.querySelector('.second-dashboard-image');
+        if (secondDashboardImg) {
+            secondDashboardImg.style.cursor = 'pointer';
+            secondDashboardImg.addEventListener('click', () => {
+                const title = document.getElementById('modalProjectTitleHeader').textContent + ' - Performance Metrics';
+                openLightbox(secondDashboardImg.src, title);
+            });
+        }
 
     // Close lightbox when close button is clicked
     lightboxClose.addEventListener('click', closeLightbox);
