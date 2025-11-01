@@ -705,7 +705,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (singleDashboardImg) {
             singleDashboardImg.style.cursor = 'pointer';
             singleDashboardImg.addEventListener('click', () => {
-                const title = document.getElementById('modalProjectTitleHeader').textContent + ' - Dashboard';
+                const title = document.getElementById('modalProjectTitleHeader').textContent + ' - Performance Overview';
                 openLightbox(singleDashboardImg.src, title);
             });
         }
@@ -715,7 +715,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (secondDashboardImg) {
             secondDashboardImg.style.cursor = 'pointer';
             secondDashboardImg.addEventListener('click', () => {
-                const title = document.getElementById('modalProjectTitleHeader').textContent + ' - Performance Metrics';
+                const title = document.getElementById('modalProjectTitleHeader').textContent + ' - Call Records & Feedback Details';
                 openLightbox(secondDashboardImg.src, title);
             });
         }
