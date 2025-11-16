@@ -663,7 +663,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     `;
                 // Update key insights and KPIs for Agency Performance, Fashion Retail, and Call Center projects
-                } else if ((projectId === 'agency-performance' || projectId === 'fashion-retail-sales' || projectId === 'call-center-analysis') && project.keyInsights) {
+                } else if ((projectId === 'agency-performance' || projectId === 'fashion-retail-sales' || projectId === 'call-center-analysis' || projectId === 'superstore-analysis' || projectId === 'adventure-works-analysis') && project.keyInsights) {
                     const findingsContainer = document.getElementById('modalKeyFindings');
                     findingsContainer.innerHTML = `
                         <div class="kpis-section">
