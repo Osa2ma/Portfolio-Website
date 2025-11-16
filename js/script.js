@@ -599,6 +599,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Show multi-dashboard grid for Agency Performance
                     singleDashboard.style.display = 'none';
                     multiDashboard.style.display = 'grid';
+                    multiDashboard.innerHTML = `
+                        <div class="dashboard-item">
+                            <h4>Presentation Overview</h4>
+                            <img src="projects/creativa/presentation tab.png" alt="Presentation Dashboard" class="dashboard-img">
+                        </div>
+                        <div class="dashboard-item">
+                            <h4>Home Dashboard</h4>
+                            <img src="projects/creativa/Home Tab.png" alt="Home Dashboard" class="dashboard-img">
+                        </div>
+                        <div class="dashboard-item">
+                            <h4>Sales Performance</h4>
+                            <img src="projects/creativa/Sales Tab.png" alt="Sales Dashboard" class="dashboard-img">
+                        </div>
+                        <div class="dashboard-item">
+                            <h4>Products Analysis</h4>
+                            <img src="projects/creativa/products tab.png" alt="Products Dashboard" class="dashboard-img">
+                        </div>
+                    `;
                      } else if (projectId === 'adventure-works-analysis') {
                     // Show multi-dashboard grid for Adventure Works Analysis
                     singleDashboard.style.display = 'none';
