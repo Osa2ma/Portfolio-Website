@@ -624,15 +624,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Update the multi-dashboard grid content for Adventure Works
                     multiDashboard.innerHTML = `
                         <div class="dashboard-item">
-                            <h4>Executive Summary</h4>
+                             <h4 class="no-background">Overview</h4>
+  
                             <img src="projects/Power BI/tab1.png" alt="Adventure Works Executive Dashboard" class="dashboard-img">
                         </div>
                         <div class="dashboard-item">
-                            <h4>Sales Performance</h4>
+                            <h4 class="no-background">Products</h4>
+    
                             <img src="projects/Power BI/tab2.png" alt="Adventure Works Sales Dashboard" class="dashboard-img">
                         </div>
                         <div class="dashboard-item">
-                            <h4>Customer Analysis</h4>
+                            <h4 class="no-background">Customers</h4>
+    
                             <img src="projects/Power BI/tab3.png" alt="Adventure Works Customer Dashboard" class="dashboard-img">
                         </div>
                     `;
