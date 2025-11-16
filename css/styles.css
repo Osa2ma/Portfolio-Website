@@ -1388,6 +1388,11 @@ body.dark-theme .tech-tag {
     font-weight: 600;
     text-align: center;
 }
+.dashboard-item h4:is([data-no-bg], .no-background) {
+    background: none;
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+}
 
 .dashboard-img {
     width: 100%;
