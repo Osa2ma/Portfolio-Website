@@ -338,6 +338,94 @@ document.addEventListener('DOMContentLoaded', () => {
             liveDemo: '#',
             github: '#'
         },
+        'superstore-analysis': {
+            title: 'Superstore Analysis',
+            description: 'Comprehensive business intelligence analysis of a retail superstore using Tableau to analyze sales performance, customer segments, and product profitability. This dashboard provides insights into regional performance, seasonal trends, and identifies opportunities for revenue optimization.',
+            image: 'projects/Tableau/Superstore/superstore.png',
+            dashboardImage: 'projects/Tableau/Superstore/ss.png',
+            technologies: ['Tableau', 'Business Intelligence', 'Sales Analytics', 'Data Visualization'],
+            features: [
+                'Interactive sales performance dashboard with regional breakdown',
+                'Customer segmentation analysis across consumer, corporate, and home office segments',
+                'Product category and sub-category profitability analysis',
+                'Geographic sales distribution with state and city-level insights',
+                'Seasonal trends and time-series analysis of sales patterns',
+                'Shipping mode analysis and delivery performance metrics',
+                'Profit margin analysis with discount impact assessment',
+                'Top customers and products identification for strategic focus'
+            ],
+            keyInsights: [
+                'Product Dominance: Revenue overwhelmingly driven by high-value technology hardware. Robots ($2,469,966) and Drones ($1,820,585) are the clear superstars, accounting for vast majority of total sales',
+                'Geographic Concentration: Morocco alone drives 57.7% of all sales. North African region (Morocco, Algeria, Egypt) is the primary revenue source',
+                'Revenue Volatility: Sales show extreme volatility with sharp peaks (April 2018) followed by significant drops, suggesting sales driven by large irregular events',
+                'Informational products like "Blueprints" and "eBooks" are very low-performing categories in terms of revenue',
+                'North African region dominates while Middle Eastern markets (Saudi Arabia, Iraq, Kuwait) represent small fraction of sales',
+                'Revenue patterns suggest bulk orders or specific projects rather than steady consumer purchases'
+            ],
+            kpis: {
+                'Total Sales': '$6,899,236',
+                'Total Orders': '4,976',
+                'Total Quantities Sold': '55,271',
+                'Total Discounted Amount': '$71,501',
+                'Top Product': 'Robots ($2.47M)',
+                'Top Market': 'Morocco (57.7%)'
+            },
+            recommendations: [
+                'Investigate the Spikes: Understand what caused major revenue peaks (especially April 2018) - marketing campaign, B2B contract, or new product launch',
+                'Double-Down on Core Business: Prioritize marketing, inventory, and R&D for Robots and Drones categories',
+                'Nurture Moroccan Market: Protect and understand success factors in Morocco as disruption would be catastrophic',
+                'Geographic Diversification: Use Moroccan market insights to develop targeted growth plan for Algeria (12.7%) and Egypt (11.4%)',
+                'Product Strategy: Bundle low-performing categories like "Training Videos" or "eBooks" with "Robot Kit" and "Drone Kit" purchases',
+                'Revenue Stabilization: Develop strategies to create steady revenue streams rather than relying on irregular large orders'
+            ],
+            conclusion: 'The Superstore shows strong top-line sales of nearly $6.9 million, but performance is highly dependent on robotics/drone products and the Moroccan market. The key to future stability and growth lies in understanding and replicating the drivers of major sales peaks while strategically expanding into adjacent markets.',
+            liveDemo: '#',
+            github: '#'
+        },
+        'adventure-works-analysis': {
+            title: 'Adventure Works Analysis',
+            description: 'Comprehensive business analytics dashboard for Adventure Works cycling company using Power BI. This analysis covers sales performance, customer demographics, product analysis, and executive-level insights to drive strategic decision making in the cycling industry.',
+            image: 'projects/Power BI/AdventureWorks.png',
+            dashboardImage: 'projects/Power BI/tab1.png',
+            technologies: ['Power BI', 'DAX', 'Data Modeling', 'Executive Reporting'],
+            features: [
+                'Executive summary dashboard with high-level KPIs and trend analysis',
+                'Detailed sales performance tracking across product categories',
+                'Customer demographic analysis with geographic and behavioral insights',
+                'Product performance analysis including bikes, accessories, and clothing',
+                'Interactive filtering capabilities across multiple dimensions',
+                'Time-series analysis with monthly, quarterly, and yearly trends',
+                'Customer lifetime value and retention metrics',
+                'Comprehensive data modeling with optimized DAX calculations'
+            ],
+            keyInsights: [
+                'Average Revenue Per Customer in Sharp Decline: ARPC fell from nearly £3K in early 2020 to well under £1K by 2022',
+                'Shift to Low-Value Orders: Order volume dominated by Accessories (34K orders) vs Bikes (14K) and Clothing (9K combined)',
+                'Product Mix Challenge: Most-ordered product is "Water Bottle - 30 oz." indicating revenue growth from low-value transactions',
+                'Return Problem: "Shorts" are highest-returned subcategory, indicating sizing, quality, or description issues',
+                'Target Misses: Key items like "All-Purpose Bike Stand" underperforming monthly targets for Orders, Revenue, and Profit',
+                'Defined Customer Base: Primary audience is Professionals (43.6%) and Skilled Manual (32.3%) workers with Average (46%) and Low (40.7%) income'
+            ],
+            kpis: {
+                'Total Revenue': '£24.9 Million',
+                'Total Profit': '£10.5 Million',
+                'Total Orders': '56,000',
+                'Return Rate': '2.17%',
+                'Monthly Revenue': '£1.83M (+3.31%)',
+                'Monthly Orders': '5.43K (+0.26%)'
+            },
+            recommendations: [
+                'Address ARPC Collapse: Implement bundle offers encouraging customers to add accessories to bike purchases rather than buying separately',
+                'Strategic Up-selling: Use "Predicted Profit" tool to identify smart price adjustments or promotions for high-margin items',
+                'Fix Shorts Return Problem: Investigate return reasons - sizing, material quality, or misleading photos to improve profit margins',
+                'Segmented Marketing: Target Professionals with high-end bikes and performance gear campaigns',
+                'Target Skilled Manual segment with durability, reliability, and "Tires and Tubes" focused campaigns',
+                'Customer Retention: Create loyalty program for top customers (like Maurice Shan) to increase lifetime value and retention'
+            ],
+            conclusion: 'AdventureWorks shows strong order volume and revenue growth (£24.9M), but faces a critical challenge with declining average customer value. The strategic priority is reversing the ARPC trend by focusing on bike sales, bundling strategies, and fixing product-specific profit drains like returns.',
+            liveDemo: '#',
+            github: '#'
+        },
         'agency-performance': {
             title: 'Agency Performance Analysis',
             description: 'Analysis of sales data across Egyptian governorates to find why some regions like Alexandria and Cairo sell more than others and how to make the business run better. Uses charts and numbers to spot opportunities for growth in underperforming areas like Sainai and Upper Egypt.',
