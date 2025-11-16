@@ -599,6 +599,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Show multi-dashboard grid for Agency Performance
                     singleDashboard.style.display = 'none';
                     multiDashboard.style.display = 'grid';
+                     } else if (projectId === 'adventure-works-analysis') {
+                    // Show multi-dashboard grid for Adventure Works Analysis
+                    singleDashboard.style.display = 'none';
+                    multiDashboard.style.display = 'grid';
+                    // Update the multi-dashboard grid content for Adventure Works
+                    multiDashboard.innerHTML = `
+                        <div class="dashboard-item">
+                            <h4>Executive Summary</h4>
+                            <img src="projects/Power BI/tab1.png" alt="Adventure Works Executive Dashboard" class="dashboard-img">
+                        </div>
+                        <div class="dashboard-item">
+                            <h4>Sales Performance</h4>
+                            <img src="projects/Power BI/tab2.png" alt="Adventure Works Sales Dashboard" class="dashboard-img">
+                        </div>
+                        <div class="dashboard-item">
+                            <h4>Customer Analysis</h4>
+                            <img src="projects/Power BI/tab3.png" alt="Adventure Works Customer Dashboard" class="dashboard-img">
+                        </div>
+                    `;
                 } else if (projectId === 'call-center-analysis') {
                     // Show single dashboard with additional image below for Call Center
                     singleDashboard.style.display = 'block';
